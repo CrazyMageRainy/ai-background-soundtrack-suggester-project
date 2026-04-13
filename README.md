@@ -42,10 +42,14 @@ How recommenders work is by using data collected from user listening history of 
 Algorithm recipe: 
 - +26.0 points for genre match
 - +12.0 for mood match
-- +6.0 for valence
-- +5.0 for danceability
-- +9.0 for energy
-
+- +5.0 for favorite artist
+- Mood clash-> val:	-4.0 ->	Opposing moods (chill↔aggressive, peaceful↔intense)
+- Double categorical hit ->	+3.5	-> Both genre AND mood match
+-  favorite artist will give +2.0
+- closeness x 6.0 for valence
+- closenes  x5.0 for danceability
+- clossness x9.0 for energy
+- closeness = 1- abs(diff) [diff being user_pref - song_score]
 ```mermaid
 flowchart TD
     A[/"🎧 User Preferences
@@ -57,11 +61,11 @@ flowchart TD
     C{"For each song
     in the list"}
     
-    D["Genre match? → +2.6"]
-    E["Mood match? → +1.2"]
-    F["Energy closeness → ×0.9"]
-    G["Valence closeness → ×0.6"]
-    H["Danceability closeness → ×0.5"]
+    D["Genre match? → +26"]
+    E["Mood match? → +12"]
+    F["Energy closeness → +9"]
+    G["Valence closeness → +6"]
+    H["Danceability closeness → +5"]
     
     I["Sum → Total Score"]
     

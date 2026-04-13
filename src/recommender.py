@@ -14,9 +14,9 @@ class Song:
     genre: str
     mood: str
     energy: float
-    tempo_bpm: float
+    # tempo_bpm: float
     valence: float
-    danceability: float
+    # danceability: float
     acousticness: float
 
 @dataclass
@@ -29,7 +29,9 @@ class UserProfile:
     favorite_mood: str
     target_energy: float
     likes_acoustic: bool
-
+    favorite_artists: set
+    target_valence: float
+    target_dancebility: float
 class Recommender:
     """
     OOP implementation of the recommendation logic.
@@ -67,9 +69,62 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     Scores a single song against user preferences.
     Required by recommend_songs() and src/main.py
     """
-    # TODO: Implement scoring logic using your Algorithm Recipe from Phase 2.
-    # Expected return format: (score, reasons)
-    return []
+    score = 0.0
+    reasons = []
+
+    MOOD_CLASHES = {
+        "chill": "aggressive",
+        "aggressive": "chill",
+        "peaceful": "intense",
+        "intense": "peaceful",
+    }
+
+    # --- Categorical features ---
+    genre_match = user_prefs["favorite_genre"].lower() == song["genre"].lower()
+    mood_match = user_prefs["favorite_mood"].lower() == song["mood"].lower()
+
+    if genre_match:
+        score += 26.0
+        reasons.append("genre match (+26.0)")
+
+    if mood_match:
+        score += 12.0
+        reasons.append("mood match (+12.0)")
+
+    # Bonus: both genre AND mood match
+    if genre_match and mood_match:
+        score += 3.5
+        reasons.append("double categorical hit (+3.5)")
+
+    # Penalty: mood clash
+    user_mood = user_prefs["favorite_mood"].lower()
+    song_mood = song["mood"].lower()
+    if MOOD_CLASHES.get(user_mood) == song_mood:
+        score -= 4.0
+        reasons.append("mood clash (-4.0)")
+
+    # Favorite artist bonus
+    if song["artist"] in user_prefs.get("favorite_artists", set()):
+        score += 2.0
+        reasons.append("favorite artist (+2.0)")
+
+    # --- Numerical features (closeness = 1 - abs(user_pref - song_value)) ---
+    energy_closeness = 1 - abs(user_prefs["target_energy"] - song["energy"])
+    energy_points = energy_closeness * 9.0
+    score += energy_points
+    reasons.append(f"energy ({energy_points:+.2f})")
+
+    valence_closeness = 1 - abs(user_prefs["target_valence"] - song["valence"])
+    valence_points = valence_closeness * 6.0
+    score += valence_points
+    reasons.append(f"valence ({valence_points:+.2f})")
+
+    dance_closeness = 1 - abs(user_prefs["target_dancebility"] - song["danceability"])
+    dance_points = dance_closeness * 5.0
+    score += dance_points
+    reasons.append(f"danceability ({dance_points:+.2f})")
+
+    return (score, reasons)
 
 def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
     """
