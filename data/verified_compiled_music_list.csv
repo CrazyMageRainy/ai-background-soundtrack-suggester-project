@@ -1,0 +1,52 @@
+id,title,artist,genre,mood,energy,valence,intensity,Stinger,Action Level,Setting,Tension,intensity.1,dynamic_range,song_url
+2,Awake,Tycho,Chillwave,Uplifting/Relaxed,0.65,0.8,0.5,False,0.4,Roadtrip/Morning,0.15,0.5,0.45,https://soundcloud.com/tycho/awake
+4,Dayvan Cowboy,Boards of Canada,IDM,Nostalgic/Soaring,0.6,0.65,0.7,True,0.5,Skydiving/Freefall,0.35,0.7,0.75,https://soundcloud.com/boardsofcanada/dayvan-cowboy
+5,Kiara,Bonobo,Downtempo,Chill/Groovy,0.55,0.6,0.5,False,0.35,Urban Lounge/Evening,0.25,0.5,0.55,https://soundcloud.com/bonobo/kiara
+9,Immunity,Jon Hopkins,Electronic,Atmospheric/Deep,0.45,0.4,0.65,False,0.3,Night Drive/Introspection,0.55,0.65,0.7,https://soundcloud.com/jonhopkins/immunity
+10,On The Nature of Daylight,Max Richter,Modern Classical,Sorrowful/Profound,0.2,0.1,0.75,False,0.1,Tragedy/Realization,0.8,0.75,0.85,https://soundcloud.com/max-richter/on-the-nature-of-daylight
+11,Outro,M83,Dream Pop,Epic/Soaring,0.85,0.7,0.95,True,0.65,Grand Finale/Victory,0.6,0.95,0.8,https://soundcloud.com/m83/outro
+12,Nightcall,Kavinsky,Synthwave,Dark/Cool,0.6,0.4,0.55,False,0.45,Night City/Driving,0.4,0.55,0.5,https://soundcloud.com/deadcruiser/nightcall
+14,Chamber of Reflection,Mac DeMarco,Indie,Lonely/Nostalgic,0.45,0.4,0.45,False,0.15,Empty Room/Late Night,0.3,0.45,0.4,https://soundcloud.com/mac-demarco-official/chamber-of-reflection
+18,Weightless,Marconi Union,Ambient,Relaxing/Healing,0.05,0.6,0.1,False,0.0,Meditation/Spa,0.05,0.1,0.15,https://soundcloud.com/marconiunion/weightless
+19,Xtal,Aphex Twin,Ambient Techno,Ethereal/Uplifting,0.55,0.75,0.45,False,0.4,Nature/Sunrise,0.2,0.45,0.3,https://soundcloud.com/richarddjames/xtal
+21,Sunset Lover,Petit Biscuit,Tropical House,Chill/Happy,0.55,0.85,0.4,False,0.25,Beach/Sunset,0.1,0.4,0.35,https://soundcloud.com/petitbiscuit/sunset-lover
+23,Sweden,C418,Ambient Video Game,Peaceful/Nostalgic,0.1,0.45,0.15,False,0.05,Exploration/Building,0.05,0.15,0.25,https://soundcloud.com/c418/sweden
+24,Subwoofer Lullaby,C418,Ambient Video Game,Relaxing/Gentle,0.15,0.6,0.2,False,0.05,Morning/Nature,0.1,0.2,0.3,https://soundcloud.com/c418/subwoofer-lullaby
+25,Mice on Venus,C418,Ambient/Piano,Melancholic/Warm,0.12,0.4,0.25,False,0.05,Sunset/Solitude,0.15,0.25,0.35,https://soundcloud.com/c418/mice-on-venus
+35,Wet Hands,C418,Piano/Ambient,Simple/Playful,0.2,0.65,0.15,False,0.05,Crafting/Daytime,0.05,0.15,0.25,https://soundcloud.com/c418/wet-hands
+44,Take Five,The Dave Brubeck Quartet,Cool Jazz,Smooth/Groovy,0.5,0.65,0.45,False,0.25,Lounge/City Cafe,0.2,0.45,0.4,https://soundcloud.com/davebrubeck/take-five
+46,Mogwai Fear Satan,Mogwai,Post-Rock,Epic/Building,0.7,0.45,0.85,True,0.6,Grand Scale/Reckoning,0.75,0.85,0.95,https://soundcloud.com/mogwai-official/mogwai-fear-satan
+47,Teardrop,Massive Attack,Trip-Hop,Dark/Mysterious,0.4,0.35,0.55,False,0.2,Investigation/Medical,0.45,0.55,0.35,https://soundcloud.com/massiveattack/teardrop
+55,Sleep,Godspeed You! Black Emperor,Post-Rock,Apocalyptic/Sorrowful,0.6,0.2,0.85,True,0.55,Ruined World/Eulogy,0.8,0.85,0.95,https://soundcloud.com/godspeedyoublackemperor/sleep
+58,Avril 14th,Aphex Twin,Piano,Delicate/Nostalgic,0.2,0.65,0.25,False,0.05,Childhood/Awakening,0.1,0.25,0.35,https://soundcloud.com/richarddjames/avril-14th
+59,Gymnopédie No. 1,Erik Satie,Classical,Melancholy/Calm,0.1,0.4,0.15,False,0.0,Empty Gallery/Morning,0.05,0.15,0.2,https://soundcloud.com/erik-satie/gymnopedie-no-1
+62,The Departure,Max Richter,Modern Classical,Sorrowful/Final,0.15,0.2,0.45,False,0.05,Saying Goodbye,0.5,0.45,0.5,https://soundcloud.com/max-richter/the-departure
+63,Boadicea,Enya,New Age,Mystical/Haunting,0.3,0.35,0.5,False,0.1,Ancient Mist/Ghostly,0.4,0.5,0.45,https://soundcloud.com/enya/boadicea
+70,Midnight City,M83,Synthpop,Energetic/Nostalgic,0.85,0.65,0.8,False,0.6,Night Drive/Party,0.3,0.8,0.65,https://soundcloud.com/m83/midnight-city
+74,Souvlaki Space Station,Slowdive,Shoegaze,Ethereal/Washed Out,0.55,0.45,0.6,False,0.35,Space/Drifting,0.4,0.6,0.5,https://soundcloud.com/slowdive-official/souvlaki-space-station
+76,Aria Math,C418,Electronic/Ambient,Creative/Flow,0.4,0.65,0.45,False,0.2,Building/Focus,0.15,0.45,0.5,https://soundcloud.com/c418/aria-math
+81,Nuvole Bianche,Ludovico Einaudi,Contemporary Classical,Sorrowful/Hopeful,0.3,0.4,0.45,False,0.1,Montage/Reflective,0.35,0.45,0.55,https://soundcloud.com/ludovicoeinaudi/nuvole-bianche
+84,Brokendate,Com Truise,Synthwave,Retro/Driving,0.7,0.6,0.65,False,0.5,Night Highway/Neon,0.4,0.65,0.55,https://soundcloud.com/com-truise/brokendate
+89,Ashes in the Snow,Mono,Post-Rock,Cinematic/Devastating,0.65,0.3,0.8,True,0.55,Winter/Fallout,0.6,0.8,0.9,https://soundcloud.com/monoofjapan/ashes-in-the-snow
+102,Dictaphone's Lament,Tycho,IDM/Chill,Nostalgic/Warm,0.45,0.65,0.4,False,0.2,Sunny Room/Polaroids,0.15,0.4,0.35,https://soundcloud.com/tycho/dictaphones-lament
+103,Roygbiv,Boards of Canada,IDM,Playful/Weird,0.5,0.6,0.45,False,0.15,VHS Tape/Memory,0.2,0.45,0.3,https://soundcloud.com/boardsofcanada/roygbiv
+104,Windowlicker,Aphex Twin,Electronic,Groovy/Bizarre,0.65,0.55,0.7,True,0.4,Weird Club/Limousine,0.35,0.7,0.65,https://soundcloud.com/richarddjames/windowlicker
+107,Hoppípolla,Sigur Rós,Post-Rock,Joyous/Overwhelming,0.75,0.85,0.8,True,0.5,Childhood/Jumping in Puddles,0.3,0.8,0.85,https://soundcloud.com/sigur-ros/hoppipolla
+109,Treefingers,Radiohead,Ambient,Floating/Disconnected,0.15,0.45,0.2,False,0.05,Underwater/Limbo,0.1,0.2,0.25,https://soundcloud.com/radiohead/treefingers
+110,First Breath After Coma,Explosions in the Sky,Post-Rock,Awakening/Emotional,0.6,0.55,0.8,False,0.45,Recovery/Sunrise,0.5,0.8,0.85,https://soundcloud.com/explosionsinthesky/first-breath-after-coma
+119,Danny,C418,Ambient/Synth,Eerie/Still,0.15,0.45,0.25,False,0.05,Deep Cave/Night,0.35,0.25,0.3,https://soundcloud.com/c418/danny
+123,Awake,Tycho,Chillwave,Uplifting/Relaxed,0.65,0.8,0.5,False,0.4,Roadtrip/Morning,0.15,0.5,0.45,https://soundcloud.com/tycho/tycho-awake
+124,Morning Ritual,L'Indecis,Lo-Fi Jazz,Smooth/Waking Up,0.4,0.6,0.35,False,0.15,Coffee Shop,0.1,0.35,0.25,https://soundcloud.com/chillhopdotcom/lindecis-morning-ritual
+125,Fatherhood,Joakim Karud,Lo-Fi Hip Hop,Nostalgic,0.5,0.65,0.45,False,0.2,Sunset/Memory,0.15,0.45,0.35,https://soundcloud.com/joakimkarud/fatherhood
+126,Rewind,SwuM & Afternoon Bike Ride,Chillhop,Reflective,0.35,0.45,0.3,False,0.1,Evening Commute,0.2,0.3,0.2,https://soundcloud.com/chillhopdotcom/swum-afternoon-bike-ride-rewind-1
+127,Daily,Lukrembo,Lo-Fi,Light/Happy,0.45,0.7,0.35,False,0.15,Vlog/Morning,0.05,0.35,0.2,https://soundcloud.com/lukrembo/daily
+128,Sticks & Stones,Feiertag,Electronic/Downtempo,Groovy,0.55,0.5,0.45,False,0.3,Urban Night,0.25,0.45,0.4,https://soundcloud.com/chillhopdotcom/feiertag-sticks-stones
+129,Yes Or No,Moose Dawa,Jazz Hop,Laid-back,0.3,0.55,0.3,False,0.1,Late Night Study,0.15,0.3,0.25,https://soundcloud.com/chillhopdotcom/moose-dawa-yesorno
+130,Green Stamps,Tesk,Chillhop,Bouncy,0.45,0.6,0.4,False,0.2,Walking,0.2,0.4,0.3,https://soundcloud.com/chillhopdotcom/tesk-green-stamps
+131,Exhale,Blue Wednesday,Instrumental Hip Hop,Breezy,0.5,0.65,0.4,False,0.25,Balcony,0.1,0.4,0.35,https://soundcloud.com/bluewednesday/exhale
+132,Beautifully So,Less People,Lo-Fi,Warm/Sentimental,0.3,0.6,0.25,False,0.05,Cozy Room,0.1,0.25,0.2,https://soundcloud.com/chillhopdotcom/less-people-beautifully-so
+133,Blankets,Fantompower,Ambient/Lo-Fi,Sleepy,0.2,0.4,0.2,False,0.0,Bedtime/Rain,0.05,0.2,0.15,https://soundcloud.com/fantompower/blankets
+134,Memories,Sugi.wa,Jazz Hop,Nostalgic,0.4,0.55,0.35,False,0.15,Window Seat,0.15,0.35,0.25,https://soundcloud.com/chillhopdotcom/sugiwa-memories
+135,Better Days,Team Astro,Lo-Fi,Hopeful,0.45,0.7,0.4,False,0.2,New Morning,0.1,0.4,0.3,https://soundcloud.com/teamastro/better-days
+136,I Wish I Could Sleep,Nymano,Sad Lo-Fi,Melancholy,0.25,0.2,0.25,False,0.05,Insomnia,0.3,0.25,0.15,https://soundcloud.com/chillhopdotcom/nymano-i-wish-i-could-sleep
+137,Her,Eery,Lo-Fi,Romantic/Longing,0.35,0.45,0.3,False,0.1,Thinking of You,0.2,0.3,0.2,https://soundcloud.com/eery/her

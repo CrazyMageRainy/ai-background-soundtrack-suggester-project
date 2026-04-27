@@ -1,129 +1,76 @@
 """
-Command line runner for the Music Recommender Simulation.
+Image-to-music pipeline runner.
 
-This file helps you quickly run and test your recommender.
-
-You will implement the functions in recommender.py:
-- load_songs
-- score_song
-- recommend_songs
+Usage:
+    python -m src.main path/to/image.jpg
+    python -m src.main path/to/image.jpg --top 10
 """
 
-from src.recommender import load_songs, recommend_songs, UserProfile, Song
+import argparse
+import json
+
+from src.vision_ai import analyze_image
+from src.recommender import load_songs, recommend_songs
+from src.final_decider import decide
+
+
+CATALOGS = [
+    "data/fixed_music_list.csv",
+    "data/verified_compiled_music_list.csv",
+]
 
 
 def main() -> None:
-    songs = load_songs("data/songs.csv")
-    print(f"Loaded  {len(songs)} songs")
-    # Starter example profile
-    user_prefs = {
-        "favorite_genre": "pop",
-        "favorite_mood": "happy",
-        "target_energy": 0.8,
-        "target_valence": 0.5,
-        "target_dancebility": 0.5,
-        "favorite_artists": set(["LoRoom"]),
-    }
+    parser = argparse.ArgumentParser(description="Recommend background music for a scene image.")
+    parser.add_argument("image", help="Path to the scene image file (JPEG, PNG, WEBP, …)")
+    parser.add_argument("--top", type=int, default=10, help="Number of candidates to pass to the final AI (default: 10)")
+    args = parser.parse_args()
 
-    user_profile_1 = {
-        "favorite_genre": "lofi",
-        "favorite_mood": "chill",
-        "target_energy": 0.45,
-        "target_valence": 0.6,
-        "target_dancebility": 0.3,
-        "favorite_artists": set(),
-    }
+    print(f"\n[1/3] Analyzing image: {args.image}")
+    image_profile = analyze_image(args.image)
+    print("      Vision AI output:")
+    for key, value in image_profile.items():
+        if key != "reasoning":
+            print(f"        {key}: {value}")
+    print(f"      Reasoning: {image_profile.get('reasoning', '')}")
 
-    # Deep intense rock
-    user_profile_2 = {
-        "favorite_genre": "rock",
-        "favorite_mood": "intense",
-        "target_energy": 0.92,
-        "target_valence": 0.38,
-        "target_dancebility": 0.6,
-        "favorite_artists": {"Voltline", "Crimson Riot"},
-    }
+    print(f"\n[2/3] Scoring song catalog …")
+    songs = []
+    for path in CATALOGS:
+        loaded = load_songs(path)
+        songs += loaded
+        print(f"      Loaded {len(loaded)} songs from {path}")
+    print(f"      Total: {len(songs)} songs")
 
-    # Passionate country farmer
-    user_profile_3 = {
-        "favorite_genre": "country",
-        "favorite_mood": "nostalgic",
-        "target_energy": 0.4,
-        "target_valence": 0.7,
-        "target_dancebility": 0.48,
-        "favorite_artists": {"Slow Stereo", "Paper Lanterns"},
-    }
+    top_songs = recommend_songs(image_profile, songs, k=args.top)
 
-    # Dreamy electronic
-    user_profile_4 = {
-        "favorite_genre": "electronic",
-        "favorite_mood": "dreamy",
-        "target_energy": 0.55,
-        "target_valence": 0.6,
-        "target_dancebility": 0.7,
-        "favorite_artists": {"LoRoom", "Orbit Bloom"},
-    }
-    # "happy" ↔ "melancholy" is NOT in MOOD_CLASHES
-    adversarial_3 = {
-        "favorite_genre": "classical",
-        "favorite_mood": "happy",
-        "target_energy": 0.3,
-        "target_valence": 0.4,
-        "target_dancebility": 0.3,
-        "favorite_artists": set(),
-    }
-    # Genre doesn't exist in dataset, so no song gets the 26-pt bonus
-    adversarial_2 = {
-        "favorite_genre": "polka",
-        "favorite_mood": "chill",
-        "target_energy": 0.5,
-        "target_valence": 0.5,
-        "target_dancebility": 0.5,
-        "favorite_artists": set(),
-    }
-    # Wants calm pop, but gets "Gym Hero" (energy 0.93) over acoustics/ambient
-    adversarial_1 = {
-        "favorite_genre": "pop",
-        "favorite_mood": "chill",
-        "target_energy": 0.1,
-        "target_valence": 0.6,
-        "target_dancebility": 0.3,
-        "favorite_artists": set(),
-    }
+    print(f"\n      Top {args.top} candidates:")
+    for rank, (song, score, _) in enumerate(top_songs, 1):
+        print(f"        #{rank:2d}  {song['title']} — {song['artist']}  (score: {score:.1f})")
 
-    all_profiles = [
-        user_prefs,
-        user_profile_1,
-        user_profile_2,
-        user_profile_3,
-        user_profile_4,
-        adversarial_3,
-        adversarial_2,
-        adversarial_1,
-    ]
-    for u_pref in all_profiles:
-        output_recommendations(recommend_songs(u_pref, songs, k=5), u_pref)
-    
+    print(f"\n[3/3] Final AI selecting best match …")
+    candidates = [song for song, _score, _ in top_songs]
+    score_lookup = {str(song["id"]): score for song, score, _ in top_songs}
+    result = decide(image_profile, candidates)
 
-def output_recommendations(recommendations, user_prefs):
-    # recommendations = recommend_songs(user_prefs, songs, k=5)
+    def song_label(song_id: str) -> str:
+        song = next((s for s in candidates if str(s["id"]) == song_id), None)
+        if not song:
+            return song_id
+        score = score_lookup.get(song_id, 0.0)
+        return f"{song['title']} — {song['artist']}  (score: {score:.1f})"
 
-    print("\n" + "=" * 50)
-    print("  User Preferences")
-    print("=" * 50)
-    for key, value in user_prefs.items():
-        print(f"  {key}: {value}")
+    print("\n" + "=" * 60)
+    print("  RECOMMENDATION")
+    print("=" * 60)
+    print(f"  Selected:  {song_label(str(result.get('selected_song_id', '')))}")
+    print(f"  Runner-up: {song_label(str(result.get('runner_up_song_id', '')))}")
+    rules = result.get("applied_rules", [])
+    if rules and rules != ["None"]:
+        print(f"  Rules applied: {', '.join(rules)}")
+    print(f"\n  {result.get('reasoning', '')}")
+    print("=" * 60)
 
-    print("\n" + "=" * 50)
-    print("  Top Recommendations")
-    print("=" * 50)
-    for rank, (song, score, explanation) in enumerate(recommendations, 1):
-        print(f"\n  #{rank}  {song['title']} by {song['artist']}")
-        print(f"       Genre: {song['genre']}  |  Mood: {song['mood']}")
-        print(f"       Score: {score:.2f}")
-        print(f"       Reasons:")
-        for reason in explanation.split("; "):
-            print(f"         - {reason}")
-    print("\n" + "=" * 50)
+
 if __name__ == "__main__":
     main()

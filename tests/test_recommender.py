@@ -1,4 +1,4 @@
-from src.recommender import Song, UserProfile, Recommender
+from src.recommender import Song, Recommender
 
 def make_small_recommender() -> Recommender:
     songs = [
@@ -35,33 +35,32 @@ def make_small_recommender() -> Recommender:
     ]
     return Recommender(songs)
 
+VISION_PREFS = {
+    "genre": "pop",
+    "mood": "happy",
+    "energy": 0.8,
+    "valence": 0.9,
+    "intensity": 0.7,
+    "tension": 0.3,
+    "action_level": 0.5,
+    "dynamic_range": 0.6,
+    "stinger": False,
+    "setting": "Urban",
+}
 
 def test_recommend_returns_songs_sorted_by_score():
-    user = UserProfile(
-        favorite_genre="pop",
-        favorite_mood="happy",
-        target_energy=0.8,
-        likes_acoustic=False,
-    )
     rec = make_small_recommender()
-    results = rec.recommend(user, k=2)
+    results = rec.recommend(VISION_PREFS, k=2)
 
     assert len(results) == 2
-    # Starter expectation: the pop, happy, high energy song should score higher
     assert results[0].genre == "pop"
     assert results[0].mood == "happy"
 
 
 def test_explain_recommendation_returns_non_empty_string():
-    user = UserProfile(
-        favorite_genre="pop",
-        favorite_mood="happy",
-        target_energy=0.8,
-        likes_acoustic=False,
-    )
     rec = make_small_recommender()
     song = rec.songs[0]
 
-    explanation = rec.explain_recommendation(user, song)
+    explanation = rec.explain_recommendation(VISION_PREFS, song)
     assert isinstance(explanation, str)
     assert explanation.strip() != ""

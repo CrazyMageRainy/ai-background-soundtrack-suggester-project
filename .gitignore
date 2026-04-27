@@ -13,3 +13,20 @@ venv/
 
 # Pytest cache
 .pytest_cache/
+
+# Redundant/work-in-progress CSV exports (valid catalogs: fixed_music_list.csv, verified_compiled_music_list.csv)
+data/scene_vibe_background_music.csv
+data/scene_vibe_background_music-v2.csv
+data/scene_vibe_background_music-v3.csv
+data/scene_vibe_background_music-v4.csv
+data/scene_vibe_background_music_merged.csv
+data/scene_vibe_background_music-merged-final.csv
+data/full_music_list.csv
+data/removed_music_list.csv
+data/removed _entries.csv
+data/cleaned_music_list_final.csv
+data/cleaned_music_list_final_finally.csv
+data/cleaned_merged_with_v4.csv
+data/verified_scene_vibe_background_music.csv
+data/songs.csv
+scene_vibe_background_music_merged.csv
