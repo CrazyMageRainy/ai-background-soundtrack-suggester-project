@@ -6,19 +6,37 @@
 
 ## How The System Works
 
-Explain your design in plain language.
+This project has three parts: 
+1. The vision ai model describing an image given about some scene or background.
+2. A algorithim coded to filter out songs up to the Top 10 songs.
+3. A final ai model used to complete the recommendation based on bonus points as well as what is determines on certain conditions.
 
-Some prompts to answer:
+```mermaid
+flowchart LR
+    IMG[/"🖼️ Scene / Background Image"/]
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
-- How does your `Recommender` compute a score for each song
-- How do you choose which songs to recommend
+    subgraph Vision ["Vision AI (qwen3-vl)"]
+        VA["Analyze image\nExtract music params\ngenre · mood · energy\nvalence · intensity · tension\naction_level · dynamic_range\nstinger · setting"]
+    end
 
-You can include a simple diagram or bullet list if helpful.
+    subgraph Scorer ["Scoring Algorithm"]
+        CSV[("🎵 Song Catalog\nCSV")]
+        SC["score_song()\nWeight each feature\nRank all songs"]
+        TOP["Top 10 Candidates"]
+        CSV --> SC --> TOP
+    end
 
-- The Features used for my recomendation system are: __genre, mood, energy, valence, intensity, Stinger,Action Level, Setting, tension, intensity, dynamic_range__
+    subgraph LLM ["Final AI Model ()"]
+        RE["Re-rank with context\nApply bonus conditions\nGenerate explanation"]
+    end
+
+    OUT[/"🎧 Recommended\nBackground Music"/]
+
+    IMG --> VA -->|"music params dict"| SC
+    TOP --> RE --> OUT
+```
+
+- The Features used for my recomendation system are: __genre, mood, energy, valence, intensity, Stinger, Action Level, Setting, tension, intensity, dynamic_range__
 
 THe main focus is to recommend a scene, or vibe, background music for you. You can use information like reviews credits and general musical analysis. The features I want to define are __genre, mood, energy, valence, intensity, Stinger, Action Level, Setting, Tension, intensity, dynamic_range__. energy, valence, intensity, tension, and dynamic range, action_level have numerical values ranging from 0 to 1 (ex: 0.32, 0.45), with 0 having low tension, intensity, dynamic range, action level, energy. And 1 having high of the same features. The stinger is unique as it is a boolean value. It is sudden musical impacts within the music.
 
