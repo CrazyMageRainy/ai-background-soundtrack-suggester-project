@@ -16,8 +16,8 @@ Backgrounds and scenes feel empty without the right music — the right track gi
 This tool solves that. You give it an image of a scene or background, and it finds the music that fits best from a curated catalog — no genre knowledge required. It uses a vision AI to read the image and extract musical characteristics directly from what it sees, scores the entire catalog against those characteristics using a weighted algorithm, and then passes the top candidates to a final AI model that applies context-aware rules to make the best call.
 
 The vision model (`qwen3-vl:8b-instruct`) was chosen over alternatives like llama-vision because it consistently outputs structured JSON and rates images more accurately for musical context. The final decider uses a lighter `qwen3` instruct model — small enough to run locally, but reliable enough to pick up on conflicts like electronic music clashing with a historical setting, without needing every possible combination hardcoded by hand.
----
 
+---
 ## How The System Works
 
 This project has three parts: 
