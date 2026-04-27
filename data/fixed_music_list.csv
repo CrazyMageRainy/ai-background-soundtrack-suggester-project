@@ -1,0 +1,87 @@
+id,title,artist,genre,mood,energy,valence,intensity,Stinger,Action Level,Setting,Tension,intensity.1,dynamic_range,song_url
+1,Time,Hans Zimmer,Cinematic,Epic/Melancholic,0.45,0.25,0.85,False,0.3,Climax/Resolution,0.75,0.85,0.9,https://soundcloud.com/haydigital/time-hans-zimmer
+3,Rhubarb (#3),Aphex Twin,Ambient,Ethereal/Calm,0.1,0.55,0.15,False,0.05,Space/Dreams,0.1,0.15,0.2,https://soundcloud.com/0x07/rhubarb-3-by-aphex-twin-cover
+6,Aruarian Dance,Nujabes,Lo-Fi Hip Hop,Peaceful/Reflective,0.4,0.75,0.35,False,0.2,Study/Sunset,0.15,0.35,0.3,https://soundcloud.com/tetsujin/nujabes-aruarian-dance
+7,In Motion,Trent Reznor & Atticus Ross,Film Score,Driven/Tense,0.75,0.3,0.8,True,0.7,Hacking/Heist,0.85,0.8,0.65,https://soundcloud.com/jackstin/trent-reznor-atticus-ross-in-motion
+8,Your Hand In Mine,Explosions in the Sky,Post-Rock,Emotional/Triumphant,0.5,0.65,0.85,False,0.4,Reunion/Montage,0.6,0.85,0.95,https://soundcloud.com/mikephlurry/explosions-in-the-sky-your-hand-in-mine/comment-1812083863
+13,Wanna Fight,Cliff Martinez,Film Score,Pulsing/Tense,0.7,0.15,0.8,True,0.85,Standoff/Pre-Action,0.95,0.8,0.6,https://soundcloud.com/milanrecords/cliff-martinez-wanna-fight
+15,Blade Runner Blues,Vangelis,Synth,Noir/Mysterious,0.25,0.3,0.5,False,0.15,Cyberpunk City/Rain,0.45,0.5,0.65,https://soundcloud.com/paul-schilling/blade-runner-blues-lead-demo
+16,Light of the Seven,Ramin Djawadi,Soundtrack,Suspenseful/Climactic,0.35,0.15,0.9,True,0.55,Betrayal/Plot Reveal,0.95,0.9,0.95,NOT FOUND
+17,Compass,Disasterpeace,Ambient/Chiptune,Mysterious/Eerie,0.3,0.4,0.4,False,0.2,Discovery/Cavern,0.5,0.4,0.35,https://soundcloud.com/jtrnqs/fez-compass
+20,Cornfield Chase,Hans Zimmer,Cinematic,Urgent/Wonder,0.75,0.5,0.85,False,0.6,Chase/Discovery,0.7,0.85,0.8,https://soundcloud.com/hans-zimmer-official/cornfield-chase
+22,Resonance,HOME,Synthwave,Nostalgic/Vibe,0.65,0.6,0.55,False,0.3,Retro/Cruising,0.25,0.55,0.4,https://soundcloud.com/user-107091116/home-resonance-but-its
+26,Fallen Down,Toby Fox,Chiptune/Ambient,Gentle/Acceptance,0.2,0.65,0.15,False,0.05,Meeting/Safety,0.1,0.15,0.2,https://soundcloud.com/dubcloud-2/02-toby-fox-fallen-down
+27,Undertale,Toby Fox,Acoustic/Soundtrack,Emotional/Reflective,0.35,0.55,0.5,False,0.2,Journey's End/Story,0.3,0.5,0.6,https://soundcloud.com/angrysausage/sets/undertale-toby-fox
+28,Never Forget,Martin O'Donnell & Michael Salvatori,Orchestral Soundtrack,Epic/Sorrowful,0.3,0.25,0.65,False,0.15,Memorial/Menu,0.4,0.65,0.75,https://soundcloud.com/teddyyenko/martin-odonnell-michael-salvatori-never-forget-halo-3-theme-song
+29,A Walk in the Woods,Martin O'Donnell & Michael Salvatori,Electronic/Orchestral,Mysterious/Tense,0.4,0.45,0.55,False,0.35,Forest/Recon,0.5,0.55,0.45,https://soundcloud.com/silentdreamsmusic/martin-odonnell-michael-salvatori-a-walk-in-the-woods-silent-dreams-remix
+30,Deference for Darkness,Martin O'Donnell & Michael Salvatori,Jazz/Ambient,Noir/Bleak,0.25,0.3,0.45,False,0.15,Rainy City/Night,0.4,0.45,0.5,https://soundcloud.com/user-624374950/rain-deference-for-darkness-m-odonnell-michael-salvatori
+31,City of Tears,Christopher Larkin,Classical/Soundtrack,Sorrowful/Beautiful,0.35,0.35,0.6,False,0.15,Rainy Metropolis,0.45,0.6,0.65,https://soundcloud.com/user-401999963/christopher-larkin-city-of-tears
+32,Secunda,Jeremy Soule,Ambient/Folk,Calm/Winter,0.15,0.5,0.2,False,0.05,Night Sky/Snow,0.1,0.2,0.3,https://soundcloud.com/freelaner/secunda
+33,Beneath the Mask (Instrumental),Shoji Meguro,Acid Jazz/Lounge,Chill/Smooth,0.45,0.65,0.4,False,0.1,Cafe/Evening,0.15,0.4,0.35,https://soundcloud.com/corruptedcode/shoji-meguro-beneath-the-mask-instrumental-the-glitchspace-aesthetics-edit
+34,Resurrections,Lena Raine,Electronic/Synth,Determined/Ethereal,0.65,0.55,0.75,True,0.5,Climbing/Struggle,0.6,0.75,0.8,https://soundcloud.com/lena-raine/lr-celeste-synthhowto-2
+36,Hopes and Dreams,Toby Fox,Symphonic Rock/Chiptune,Triumphant/Energetic,0.85,0.8,0.9,True,0.8,Final Boss/Climax,0.75,0.9,0.85,https://soundcloud.com/tobyfox-music/hopes-and-dreams
+37,Dire Dire Docks,Koji Kondo,Ambient Video Game,Peaceful/Aquatic,0.25,0.75,0.2,False,0.1,Underwater/Cave,0.05,0.2,0.3,https://soundcloud.com/aniwixmusic/koji-kondo-dire-dire-docks-aniwixs-2k17-remix
+38,The Rain Formerly Known as Purple,Chris Christodoulou,Synth/Rock,Groovy/Atmospheric,0.65,0.55,0.7,False,0.55,Alien World/Combat,0.45,0.7,0.6,https://soundcloud.com/chrischristodouloumusic/the-rain-formerly-known-as
+39,To the Moon - Main Theme,Kan R. Gao,Piano/Soundtrack,Heartbreaking/Nostalgic,0.2,0.35,0.4,False,0.05,Memory/Looking Back,0.3,0.4,0.5,https://soundcloud.com/kylekoenig/kan-r-gao-to-the-moon-main
+40,Theme of Laura,Akira Yamaoka,Ambient Rock,Melancholic/Unsettling,0.6,0.45,0.65,True,0.4,Fog/Mystery,0.7,0.65,0.55,https://soundcloud.com/qum23/theme-of-laura
+41,Ezio's Family,Jesper Kyd,Orchestral/Vocalise,Epic/Tragic,0.55,0.4,0.75,True,0.3,City Rooftops/Legacy,0.6,0.75,0.85,https://soundcloud.com/abd-ali-alftlawy/jesper-kyd-ezios-family
+42,Journey Theme,Austin Wintory,Orchestral/Cello,Wondrous/Expansive,0.4,0.5,0.8,False,0.2,Desert/Ruins,0.45,0.8,0.9,https://soundcloud.com/awintory/journey-nascence
+43,Clair de Lune,Claude Debussy,Classical,Peaceful/Dreamy,0.15,0.5,0.25,False,0.05,Moonlight/Romantic,0.1,0.25,0.6,https://soundcloud.com/claude-debussy/clair-de-lune
+45,Any Other Name,Thomas Newman,Film Score,Reflective/Still,0.1,0.4,0.15,False,0.05,Observation/Epiphany,0.15,0.15,0.3,https://soundcloud.com/antonioderubertis/thomas-newman-any-other-name?in=idrilreid/sets/piano-modern-classical-study
+48,The Last of Us,Gustavo Santaolalla,Acoustic/Folk,Bleak/Surival,0.35,0.2,0.5,False,0.4,Wasteland/Journey,0.65,0.5,0.45,https://soundcloud.com/gustavo-santaolalla/the-last-of-us
+49,Blue in Green,Miles Davis,Modal Jazz,Melancholy/Late Night,0.15,0.3,0.2,False,0.05,Rainy Window/Smoky Room,0.25,0.2,0.35,https://soundcloud.com/user-289124008/blue-in-green
+50,Pruit Igoe,Philip Glass,Minimalist Classical,Frantic/Inevitable,0.8,0.3,0.9,False,0.75,Time Lapse/Collapse,0.85,0.9,0.8,https://soundcloud.com/philip-glass-official/pruit-igoe
+51,Quiet,This Will Destroy You,Post-Rock,Emotional/Cathartic,0.65,0.4,0.8,True,0.45,Realization/Aftermath,0.6,0.8,0.9,https://soundcloud.com/eminovpress-1/this-will-destroy-you-quiet/albums
+52,Derezzed,Daft Punk,Electronic/House,Frenetic/Pulsing,0.9,0.5,0.85,False,0.95,Cyber Chase/Club,0.7,0.85,0.4,https://soundcloud.com/mckalkan/daft-punk-derezzed
+53,Halloween Theme,John Carpenter,Synth/Horror,Ominous/Creepy,0.55,0.1,0.65,False,0.5,Stalking/Nightmare,0.95,0.65,0.3,https://soundcloud.com/john-carpenter-official/track-2
+54,Bohren's Battery,Bohren & der Club of Gore,Dark Ambient Jazz,Noir/Slow,0.1,0.25,0.2,False,0.05,Detective/Alleyway,0.5,0.2,0.25,NOT FOUND
+56,A Warm Place,Nine Inch Nails,Dark Ambient,Isolated/Sorrowful,0.15,0.25,0.3,False,0.05,Desolation/Heartbreak,0.4,0.3,0.35,https://soundcloud.com/theanthropophobiaproject/a-warm-determined-place
+57,Maggot Brain,Funkadelic,Psychedelic Rock,Agonizing/Soulful,0.45,0.15,0.75,False,0.2,Tragedy/Mind Trip,0.65,0.75,0.8,https://soundcloud.com/jdubay111/adrift-on-river-styx-maggot
+60,Chernobyl (Main Theme),Hildur Guðnadóttir,Dark Ambient,Dread/Oppressive,0.25,0.05,0.7,False,0.1,Disaster/Radiation,0.95,0.7,0.55,https://soundcloud.com/user-615282444/sets/hildur-gu-nad-ttir-chernobyl
+61,Bylar,Hammock,Ambient/Shoegaze,Ethereal/Wondrous,0.35,0.55,0.5,False,0.15,Floating/Ascension,0.2,0.5,0.6,https://soundcloud.com/user-818469711/sets/hammock
+64,First Step,Hans Zimmer,Film Score,Awe-Inspiring/Epic,0.65,0.6,0.85,False,0.4,Space Launch/Discovery,0.55,0.85,0.9,https://soundcloud.com/lupodellaluna/hans-zimmer-first-step-lupo-remix-interstellar-main-theme
+65,Sycamore,Caspian,Post-Rock,Triumphant/Intense,0.8,0.55,0.9,True,0.65,Final Stand/Victory,0.7,0.9,0.85,https://soundcloud.com/caspian_music/caspian-05-sycamore-live-at
+66,A Quick One Before the Eternal Worm Devours Connecticut,Have A Nice Life,Drone/Acoustic,Bleak/Resigned,0.2,0.15,0.35,False,0.05,End of the World,0.45,0.35,0.4,https://m.soundcloud.com/stora-kronan/a-quick-one-before-the-eternal-worm-devours-connecticut-have-a-nice-life
+67,Breathe,Pink Floyd,Progressive Rock,Spacey/Relaxed,0.35,0.5,0.45,False,0.15,Psychedelic/Drifting,0.2,0.45,0.55,https://soundcloud.com/officialpinkfloyd/breathe-in-the-air-2011
+68,Untitled #4 (Njósnavélin),Sigur Rós,Post-Rock/Ambient,Beautiful/Devastating,0.55,0.4,0.75,True,0.35,Slow Motion/Epilogue,0.6,0.75,0.85,https://soundcloud.com/sigur-ros/untitled-4-njosnavelin-1
+69,Arrival of the Birds,The Cinematic Orchestra,Nu-Jazz/Orchestral,Majestic/Uplifting,0.5,0.7,0.65,False,0.3,Nature/Creation,0.25,0.65,0.7,NOT FOUND
+71,Adagio for Strings,Samuel Barber,Classical,Tragic/Mournful,0.3,0.1,0.85,False,0.1,Devastation/Grief,0.9,0.85,0.8,https://soundcloud.com/gitroot/samuel-barber-adagio-for-strings
+72,Clubbed to Death,Rob Dougan,Trip-Hop/Orchestral,Cool/Intense,0.7,0.4,0.75,True,0.65,Matrix/Strutting,0.6,0.75,0.65,https://soundcloud.com/luke-mackie-2/rob-dougan-clubbed-to-death-kurayamino-variation/sets
+73,1/1,Brian Eno,Ambient,Calm/Still,0.05,0.5,0.1,False,0.0,Airport/Waiting,0.05,0.1,0.15,https://soundcloud.com/brianeno-1
+75,"All Is Violent, All Is Bright",God Is An Astronaut,Post-Rock,Epic/Building,0.75,0.5,0.85,True,0.65,Climax/Struggle,0.7,0.85,0.8,https://soundcloud.com/ryanu-var/god-is-an-astronaut-all-is-violent-all-is-bright
+77,Pigstep,Lena Raine,Electronic/Funk,Groovy/Bouncy,0.7,0.8,0.65,False,0.55,Nether/Celebration,0.4,0.65,0.6,https://soundcloud.com/andrew-martins-305738406/lena-raine-pigstep
+78,BFG Division,Mick Gordon,Industrial Metal,Aggressive/Intense,0.95,0.1,0.95,True,0.95,Combat/Demon Horde,0.9,0.95,0.85,https://soundcloud.com/scalliano/mick-gordon-bfg-division-jg-revision
+79,Song of Storms,Koji Kondo,Video Game Soundtrack,Mysterious/Repetitive,0.45,0.4,0.5,False,0.3,Rain/Windmill,0.4,0.5,0.35,https://soundcloud.com/gamechops/song-of-storms
+80,Lux Aeterna,Clint Mansell,Modern Classical,Tragic/Frantic,0.85,0.1,0.9,True,0.7,Downward Spiral/Panic,0.95,0.9,0.8,NOT FOUND
+82,The Beast,Jóhann Jóhannsson,Film Score,Ominous/Dark,0.4,0.15,0.75,True,0.3,Cartel/Approaching Threat,0.85,0.75,0.6,https://soundcloud.com/takashiuchiyama/johann-johannsson-the-beastremix2025111
+83,Sometimes,My Bloody Valentine,Shoegaze,Overwhelming/Fuzzy,0.65,0.45,0.7,False,0.4,City Lights/Overload,0.5,0.7,0.45,https://soundcloud.com/mybloodyvalentinemusic/sometimes-remastered-version
+85,Beacon,Disasterpeace,Chiptune,Mystical/Puzzling,0.35,0.55,0.4,False,0.15,Pixel Ruins/Discovery,0.2,0.4,0.3,https://soundcloud.com/dzasterpeace
+86,Chariots of Fire,Vangelis,Synth/Soundtrack,Triumphant/Slow Motion,0.5,0.75,0.6,False,0.3,Race/Victory,0.25,0.6,0.65,https://soundcloud.com/gavindi/chariots-of-fire-bitpopchiptune-tribute-to-vangelis
+87,The Ecstasy of Gold,Ennio Morricone,Film Score,Epic/Western,0.8,0.6,0.9,True,0.65,Showdown/Graveyard,0.75,0.9,0.85,https://soundcloud.com/chipsncellos/the-ecstasy-of-gold-morricone-mega-man-style-8bit-remix
+88,"In the House, In a Heartbeat",John Murphy,Film Score,Dread/Building,0.75,0.2,0.85,True,0.6,Zombie Attack/Escape,0.9,0.85,0.8,https://soundcloud.com/deepsilvermusic/metroexodus-ithiah
+90,Autumn into Summer,Pelican,Post-Metal,Heavy/Driving,0.8,0.4,0.75,False,0.6,Desert Road/Trekking,0.5,0.75,0.7,NOT FOUND
+91,To Zanarkand,Nobuo Uematsu,Piano/Soundtrack,Nostalgic/Sad,0.25,0.35,0.4,False,0.1,Campfire/Ruins,0.3,0.4,0.5,https://m.soundcloud.com/park-jubin/nobuo-uematsu-to-zanarkand
+92,"Ori, Lost In the Storm",Gareth Coker,Orchestral,Sorrowful/Epic,0.45,0.25,0.65,False,0.35,Storm/Tragedy,0.55,0.65,0.75,https://soundcloud.com/noodoon/gareth-coker-ori-lost-in-the-storm-ori-and-the-blind-forest
+93,Apotheosis,Austin Wintory,Orchestral/Choir,Grand/Transcendental,0.7,0.6,0.9,True,0.5,Mountain Peak/Ascension,0.6,0.9,0.85,https://soundcloud.com/awintory/journey-apotheosis/sets
+94,In the Blood,Darren Korb,Indie Rock/Soundtrack,Determined/Gritty,0.85,0.45,0.8,False,0.75,Underworld/Combat,0.65,0.8,0.7,https://soundcloud.com/kevhann/darren-korb-in-the-blood-feat
+95,God of War,Bear McCreary,Orchestral/Choral,Heavy/Epic,0.8,0.3,0.9,True,0.7,Norse Epic/Battle,0.75,0.9,0.85,NOT FOUND
+96,All Gone (No Escape),Gustavo Santaolalla,Acoustic/Tense,Panic/Despair,0.6,0.15,0.7,True,0.65,Infected Chase/Hide,0.85,0.7,0.6,NOT FOUND
+97,eps1.0_hellofriend.mkv,Mac Quayle,Electronic/Synth,Paranoid/Digital,0.45,0.35,0.55,False,0.25,Hacking/Server Room,0.6,0.55,0.4,NOT FOUND
+98,Stranger Things,Kyle Dixon & Michael Stein,Synthwave,Ominous/Retro,0.6,0.4,0.65,False,0.3,Mystery/1980s,0.55,0.65,0.5,https://soundcloud.com/thebatteryhuman/strangerbreaks
+99,Hand Covers Bruise,Trent Reznor & Atticus Ross,Dark Ambient,Tense/Uneasy,0.2,0.25,0.45,False,0.05,Betrayal/Plotting,0.7,0.45,0.3,https://soundcloud.com/clubberzonatv/trent-reznor-and-atticus-ross?in=yanick-dorzile/sets/trent-reznors-ost
+100,Walk Don't Run,The Ventures,Surf Rock,Upbeat/Cool,0.75,0.8,0.6,False,0.5,Beach/Heist Prep,0.2,0.6,0.45,https://soundcloud.com/chanond-k/ghost-riders-in-the-sky-the-ventures
+101,Miserlou,Dick Dale,Surf Rock,Frenetic/Wild,0.9,0.65,0.85,False,0.8,Car Chase/Pulp,0.65,0.85,0.6,https://m.soundcloud.com/edson-moraes-1/dick-dale-miserlou
+105,Son of Flynn,Daft Punk,Electronic/Score,Pulsing/Heroic,0.7,0.65,0.75,False,0.6,Grid/Motorcycle,0.45,0.75,0.55,NOT FOUND
+106,Wait,M83,Shoegaze/Pop,Epic/Sorrowful,0.65,0.35,0.85,True,0.4,Loss/Grand View,0.55,0.85,0.8,https://soundcloud.com/ivan-guardino/wait-m83s-cover
+108,Intro,The xx,Indie/Electronic,Cool/Atmospheric,0.6,0.5,0.65,False,0.3,Night Out/Preparation,0.35,0.65,0.55,https://soundcloud.com/andizerbes/the-xx-intro-long-version
+111,Harper Lewis,Russian Circles,Post-Metal,Heavy/Relentless,0.85,0.35,0.9,True,0.75,Pursuit/Heavy Labor,0.7,0.9,0.75,https://soundcloud.com/user7542339/harper-lewis/comment-249942355
+112,A With Living,Do Make Say Think,Post-Rock/Jazz,Rhythmic/Complex,0.55,0.6,0.65,False,0.35,City Walk/Machinery,0.3,0.65,0.6,https://soundcloud.com/domakesaythinkofficial/a-with-living
+113,Djed,Tortoise,Krautrock/Post-Rock,Hypnotic/Groovy,0.6,0.55,0.6,False,0.3,Transit/Train Ride,0.25,0.6,0.5,https://soundcloud.com/toydrumproductions/tortoise-djed-unkle-remix
+114,Washer,Slint,Math Rock,Tense/Depressive,0.35,0.25,0.75,True,0.25,Isolation/Breaking Point,0.85,0.75,0.8,https://soundcloud.com/slint-official/washer
+115,Epilogue,Yuka Kitamura,Orchestral/Choir,Bleak/Finality,0.4,0.2,0.6,False,0.15,Ash/End of an Era,0.5,0.6,0.7,https://soundcloud.com/user-65252322/yuka-kitamura-epilogue
+116,Promise,Akira Yamaoka,Ambient Rock,Melancholy/Distorted,0.55,0.4,0.65,True,0.3,Fog/Revelation,0.6,0.65,0.55,https://soundcloud.com/unanochesincafe/akira-yamaoka-promise
+117,Venice Rooftops,Jesper Kyd,Electronic/Score,Energetic/Acrobatic,0.85,0.65,0.8,False,0.8,Parkour/Chase,0.45,0.8,0.7,https://soundcloud.com/jesperkyd-music/venice-rooftops
+118,One Final Effort,Martin O'Donnell & Michael Salvatori,Orchestral/Rock,Epic/Heroic,0.9,0.7,0.95,True,0.9,Final Push/War,0.75,0.95,0.85,NOT FOUND
+120,Megalovania,Toby Fox,Chiptune/Rock,Frenetic/Boss,0.95,0.75,0.9,True,0.95,Ultimate Showdown,0.8,0.9,0.85,https://soundcloud.com/tobyfox-music/megalovania
+121,Sealed Vessel,Christopher Larkin,Orchestral,Tragic/Frantic,0.8,0.3,0.85,True,0.75,Tragic Duel/Sacrifice,0.85,0.85,0.8,https://soundcloud.com/user-401999963/christopher-larkin-sealed-vessel
+122,Main Title,Ramin Djawadi,Orchestral,Grand/Marching,0.7,0.5,0.8,False,0.4,Map/World Building,0.6,0.8,0.75,https://m.soundcloud.com/ramin-djawadi-official/main-title-from-the-netflix?in_system_playlist=artist-stations:207965929

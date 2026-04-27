@@ -1,17 +1,6 @@
-# 🎵 Music Recommender Simulation
+# 🎵 Background Music Recommender
 
 ## Project Summary
-
-In this project you will build and explain a small music recommender system.
-
-Your goal is to:
-
-- Represent songs and a user "taste profile" as data
-- Design a scoring rule that turns that data into recommendations
-- Evaluate what your system gets right and wrong
-- Reflect on how this mirrors real world AI recommenders
-
-Replace this paragraph with your own summary of what your version does.
 
 ---
 
@@ -29,9 +18,11 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
-- The Features used for my recomendation system are: __genre, mood, energy, valence, and danceability__
+- The Features used for my recomendation system are: __genre, mood, energy, valence, intensity, Stinger,Action Level, Setting, tension, intensity, dynamic_range__
+
+THe main focus is to recommend a scene, or vibe, background music for you. You can use information like reviews credits and general musical analysis. The features I want to define are __genre, mood, energy, valence, intensity, Stinger, Action Level, Setting, Tension, intensity, dynamic_range__. energy, valence, intensity, tension, and dynamic range, action_level have numerical values ranging from 0 to 1 (ex: 0.32, 0.45), with 0 having low tension, intensity, dynamic range, action level, energy. And 1 having high of the same features. The stinger is unique as it is a boolean value. It is sudden musical impacts within the music.
+
 - Song will use the features above as its values to compare with other songs
-- UserProfile will store: user_preference scores for each feature (with numerical values). It will have a list of genres that the User has listened to (maybe with its frequency of which genre a listener listens to, and be sorted with the amount of songs that a user likes). 
 
 - Recommender will use weights to compute each feature based on their importance. $$total = (w1 * score_energy) + (w2 * score_valence) + (w3 * score_danceability) + ...$$
 - each one will be calculated using $score = 1 - abs(user_preference - song_value)$ which will base on how much it deiviates from the users prefered value for that feature
@@ -40,53 +31,56 @@ You can include a simple diagram or bullet list if helpful.
 How recommenders work is by using data collected from user listening history of the individual and scoring each songs based on each feature, we can give recommendations using a formula like the one above to give more fitting recommendations for the user. The weights provide fine tuning for us to focus more on whats more important for the listener. The app collects data on what songs one will dislike or like and attempts to use the values given to a song to determine the user_preference score for each feature and to limit any deviation from what the user would want to listen.
 ---
 Algorithm recipe: 
-- +26.0 points for genre match
+- +18.0 points for genre match
 - +12.0 for mood match
 - +3.5 for double categorical hit (both genre AND mood match)
-- +2.0 for favorite artist
 - -4.0 for mood clash (chill↔aggressive, peaceful↔intense)
 - closeness x 9.0 for energy
 - closeness x 6.0 for valence
-- closeness x 5.0 for danceability
+- closeness x 6.0 intensity 
+- closeness x 6.0 for tension
+- closeness x 7.5 dynamic range
 - closeness = 1 - abs(user_pref - song_value)
 ```mermaid
 flowchart TD
-    A[/"🎧 User Preferences
-    genre, mood, energy, valence, danceability"/]
-    
+    A[/"🖼️ Image Analysis
+    genre, mood, energy, valence,
+    intensity, tension, dynamic_range"/]
+
     B[("📂 Load Songs
     from CSV")]
-    
+
     C{"For each song
     in the list"}
-    
-    D["Genre match? → +26"]
+
+    D["Genre match? → +18"]
     E["Mood match? → +12"]
     F["Both match? → +3.5"]
     G["Mood clash? → -4.0"]
-    H["Favorite artist? → +2.0"]
-    I["Energy closeness → x9"]
-    J["Valence closeness → x6"]
-    K["Danceability closeness → x5"]
-    
-    L["Sum → Total Score"]
-    
-    M{More songs?}
-    
-    N["Sort all songs
+    H["Energy closeness → x9"]
+    I["Valence closeness → x6"]
+    J["Intensity closeness → x6"]
+    K["Tension closeness → x6"]
+    L["Dynamic Range closeness → x7.5"]
+
+    M["Sum → Total Score"]
+
+    N{More songs?}
+
+    O["Sort all songs
     by score descending"]
-    
-    O[/"🏆 Return Top K
+
+    P[/"🏆 Return Top K
     Recommendations"/]
 
     A --> B --> C
-    C --> D --> E --> F --> G --> H --> I --> J --> K --> L
-    L --> M
-    M -- Yes --> C
-    M -- No --> N --> O
+    C --> D --> E --> F --> G --> H --> I --> J --> K --> L --> M
+    M --> N
+    N -- Yes --> C
+    N -- No --> O --> P
 ```
 Genres is still the main bias out of all the features. However, the other features added together is more than it, allowing songs from other genres that might also be good recommendations.
-
+### Screenshots
 ![Algorithm Output Terminal Screenshot](algor-output-terminal-screenshoot.png)
 
 ![Lofi Chill User Profile](lofi_chill.png)
