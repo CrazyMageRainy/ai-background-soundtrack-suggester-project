@@ -11,6 +11,11 @@ Testing across lofi/chill, rock/intense, country/nostalgic, and adversarial prof
 
 ## Project Summary
 
+Backgrounds and scenes feel empty without the right music — the right track gives a scene life and atmosphere that visuals alone can't provide. But finding that music is hard if you aren't familiar with genres, composers, or what a particular visual style even calls for.
+
+This tool solves that. You give it an image of a scene or background, and it finds the music that fits best from a curated catalog — no genre knowledge required. It uses a vision AI to read the image and extract musical characteristics directly from what it sees, scores the entire catalog against those characteristics using a weighted algorithm, and then passes the top candidates to a final AI model that applies context-aware rules to make the best call.
+
+The vision model (`qwen3-vl:8b-instruct`) was chosen over alternatives like llama-vision because it consistently outputs structured JSON and rates images more accurately for musical context. The final decider uses a lighter `qwen3` instruct model — small enough to run locally, but reliable enough to pick up on conflicts like electronic music clashing with a historical setting, without needing every possible combination hardcoded by hand.
 ---
 
 ## How The System Works
@@ -35,7 +40,7 @@ flowchart LR
         CSV --> SC --> TOP
     end
 
-    subgraph LLM ["Final AI Model ()"]
+    subgraph LLM ["Final AI Model (qwen3:4b-instruct)"]
         RE["Re-rank with context\nApply bonus conditions\nGenerate explanation"]
     end
 
@@ -99,14 +104,21 @@ flowchart TD
     O["Sort all songs
     by score descending"]
 
-    P[/"🏆 Return Top K
-    Recommendations"/]
+    P[/"Top K Candidates"/]
+
+    Q["Final AI Model
+    Apply Epic Scale Bonus
+    Apply Mismatched Era Penalty
+    Generate reasoning"]
+
+    R[/"🏆 Selected Song
+    + Runner-up"/]
 
     A --> B --> C
     C --> D --> E --> F --> G --> H --> I --> J --> K --> L --> M
     M --> N
     N -- Yes --> C
-    N -- No --> O --> P
+    N -- No --> O --> P --> Q --> R
 ```
 Genres is still the main bias out of all the features. However, the other features added together is more than it, allowing songs from other genres that might also be good recommendations.
 ### Example Runs
@@ -127,7 +139,12 @@ python -m src.main assets/test\ pics/Final-Fantasy-XIV-Dawntrail-Screenshot-014.
         action_level: 0.1
         dynamic_range: 0.3
         stinger: False
-      Reasoning: The scene depicts a peaceful, sunlit fantasy village nestled in a mountainous landscape with traditional architecture and mystical elements, suggesting a calm and exploratory mood. The music should be ambient and orchestral to match the tranquil yet adventurous tone, with low energy, high valence, low tension, and low action. The focus is on the environment, not a character or sudden event, so moderate dynamic range is appropriate.
+      Reasoning: The scene depicts a peaceful, sunlit fantasy village nestled in a \
+      mountainous landscape with traditional architecture and mystical elements, \
+      suggesting a calm and exploratory mood. The music should be ambient and orchestral \
+      to match the tranquil yet adventurous tone, with low energy, high valence,\
+      low tension, and low action. The focus is on the environment, \
+      not a character or sudden event, so moderate dynamic range is appropriate.
 
 [2/3] Scoring song catalog …
       Loaded 86 songs from data/fixed_music_list.csv
@@ -154,9 +171,70 @@ python -m src.main assets/test\ pics/Final-Fantasy-XIV-Dawntrail-Screenshot-014.
   Selected:  Aruarian Dance — Nujabes  (score: 34.3)
   Runner-up: Dire Dire Docks — Koji Kondo  (score: 33.6)
 
-  The selected song, 'Aruarian Dance', perfectly matches the serene and adventurous mood of the mountain village setting with its peaceful, reflective tone and low energy. The runner-up, 'Dire Dire Docks', offers a similar tranquil vibe but is set in an underwater cave, which diverges from the mountain village context, making it a less accurate fit.
+  The selected song, 'Aruarian Dance', perfectly matches the serene and \
+  adventurous mood of the mountain village setting with its peaceful, \
+  reflective tone and low energy. The runner-up, 'Dire Dire Docks', offers \
+  a similar tranquil vibe but is set in an underwater cave, which diverges \
+  from the mountain village context, making it a less accurate fit.
 ============================================================
 ~~~
+__Example 2__:
+~~~
+python -m src.main assets/test\ pics/god-of-war-ragnarok-art.webp
+~~~
+~~~
+[1/3] Analyzing image: assets/test pics/god-of-war-ragnarok-art.webp
+      Vision AI output:
+        genre: Orchestral
+        mood: Intense
+        visual_genre: Fantasy
+        setting: Battlefield
+        energy: 0.9
+        valence: 0.6
+        tension: 0.8
+        intensity: 0.95
+        action_level: 0.95
+        dynamic_range: 0.85
+        stinger: False
+      Reasoning: The image depicts a high-energy fantasy battle scene \
+      with multiple combatants, dramatic lighting, and dynamic motion. \
+      The orchestral genre suits the epic and heroic tone. High energy \
+      and tension reflect the combat, while the intensity and action level \
+      are near-maximum. The dynamic range is high due to focused character \
+      action, but no sudden visual impact requires a stinger.
+
+[2/3] Scoring song catalog …
+      Loaded 86 songs from data/fixed_music_list.csv
+      Loaded 51 songs from data/verified_compiled_music_list.csv
+      Total: 137 songs
+
+      Top 10 candidates:
+        # 1  Sealed Vessel — Christopher Larkin  (score: 58.1)
+        # 2  Main Title — Ramin Djawadi  (score: 55.2)
+        # 3  Ori, Lost In the Storm — Gareth Coker  (score: 49.9)
+        # 4  One Final Effort — Martin O'Donnell & Michael Salvatori  (score: 35.8)
+        # 5  Megalovania — Toby Fox  (score: 35.3)
+        # 6  Hopes and Dreams — Toby Fox  (score: 34.0)
+        # 7  The Ecstasy of Gold — Ennio Morricone  (score: 34.0)
+        # 8  Sycamore — Caspian  (score: 33.4)
+        # 9  Miserlou — Dick Dale  (score: 33.4)
+        #10  Derezzed — Daft Punk  (score: 33.3)
+
+[3/3] Final AI selecting best match …
+
+============================================================
+  RECOMMENDATION
+============================================================
+  Selected:  One Final Effort — Martin O'Donnell & Michael Salvatori  (score: 35.8)
+  Runner-up: Megalovania — Toby Fox  (score: 35.3)
+  Rules applied: Epic Scale Bonus, None
+
+  The selected song, 'One Final Effort', perfectly matches the image's \
+  high intensity and action-level battlefield fantasy scene with its \
+  epic, heroic tone and dynamic range. It aligns with the 'Final Push/War' \
+  setting and provides the necessary momentum and tension for a high-energy combat sequence.
+~~~
+
 ### Example with rerun outputs
 __Input:__
 __Round One__
@@ -177,7 +255,13 @@ python -m src.main assets/test\ pics/newb-x-trailer-shader-rain-screenshot.webp
         action_level: 0.1
         dynamic_range: 0.3
         stinger: False
-      Reasoning: The image depicts a quiet, rainy forest with a lone character holding a torch, suggesting a calm, exploratory mood. The pixelated, blocky aesthetic of Minecraft points to a fantasy setting. The slow, atmospheric visual movement and lack of action call for ambient music with low energy and moderate valence. The tension is low, indicating no immediate threat. Dynamic range is moderately low because the focus is on the environment, not a specific character or action.
+      Reasoning: The image depicts a quiet, rainy forest with a lone 
+      character holding a torch, suggesting a calm, exploratory mood. 
+      The pixelated, blocky aesthetic of Minecraft points to a fantasy setting. 
+      The slow, atmospheric visual movement and lack of action call for 
+      ambient music with low energy and moderate valence. The tension is low, 
+      indicating no immediate threat. Dynamic range is moderately low because 
+      the focus is on the environment, not a specific character or action.
 
 [2/3] Scoring song catalog …
       Loaded 86 songs from data/fixed_music_list.csv
@@ -204,7 +288,11 @@ python -m src.main assets/test\ pics/newb-x-trailer-shader-rain-screenshot.webp
   Selected:  Weightless — Marconi Union  (score: 56.9)
   Runner-up: Rhubarb (#3) — Aphex Twin  (score: 58.2)
 
-  Weightless by Marconi Union perfectly matches the image's misty, calm atmosphere and rainy forest setting with its deeply relaxing, healing mood and minimal energy. Rhubarb (#3) is a strong runner-up due to its ethereal calmness and space-based setting, though it lacks direct connection to a fantasy forest environment.
+  Weightless by Marconi Union perfectly matches the image's misty, 
+  calm atmosphere and rainy forest setting with its deeply relaxing, 
+  healing mood and minimal energy. Rhubarb (#3) is a strong runner-up 
+  due to its ethereal calmness and space-based setting, though it lacks 
+  direct connection to a fantasy forest environment.
 ============================================================
 ~~~
 __Round 2__
@@ -222,7 +310,11 @@ __Round 2__
         action_level: 0.1
         dynamic_range: 0.2
         stinger: False
-      Reasoning: The scene depicts a calm, rain-soaked Minecraft forest with a single character holding a torch. The visual cues suggest a tranquil, exploratory mood with low action and minimal tension. Ambient music with gentle dynamics and a slightly positive valence would complement the serene, immersive atmosphere without overwhelming the scene.
+      Reasoning: The scene depicts a calm, rain-soaked Minecraft 
+      orest with a single character holding a torch. The visual cues 
+      suggest a tranquil, exploratory mood with low action and minimal 
+      tension. Ambient music with gentle dynamics and a slightly positive 
+      valence would complement the serene, immersive atmosphere without overwhelming the scene.
 
 [2/3] Scoring song catalog …
       Loaded 86 songs from data/fixed_music_list.csv
@@ -249,7 +341,11 @@ __Round 2__
   Selected:  Weightless — Marconi Union  (score: 57.3)
   Runner-up: Rhubarb (#3) — Aphex Twin  (score: 58.6)
 
-  Weightless by Marconi Union perfectly matches the scene's misty, serene atmosphere with its relaxing, healing mood and minimal energy, aligning with the tranquil rain-soaked forest setting. Rhubarb offers a similar ambient quality but is set in dreams, slightly less grounded in the fantasy world of the scene, making it a secondary choice.
+  Weightless by Marconi Union perfectly matches the scene's misty, 
+  serene atmosphere with its relaxing, healing mood and minimal energy, 
+  aligning with the tranquil rain-soaked forest setting. Rhubarb offers 
+  a similar ambient quality but is set in dreams, slightly less grounded 
+  in the fantasy world of the scene, making it a secondary choice.
 ============================================================
 ~~~
 __Round 3__
@@ -267,7 +363,11 @@ __Round 3__
         action_level: 0.0
         dynamic_range: 0.3
         stinger: False
-      Reasoning: The scene depicts a calm, rainy forest in a pixelated style, suggesting a tranquil and slightly melancholic atmosphere. The low energy and low tension indicate no immediate threat or action. The gentle rain and muted colors support an ambient musical choice with a soft, atmospheric quality.
+      Reasoning: The scene depicts a calm, rainy forest in a pixelated 
+      style, suggesting a tranquil and slightly melancholic atmosphere. 
+      The low energy and low tension indicate no immediate threat or action. 
+      The gentle rain and muted colors support an ambient musical choice 
+      with a soft, atmospheric quality.
 
 [2/3] Scoring song catalog …
       Loaded 86 songs from data/fixed_music_list.csv
@@ -294,11 +394,14 @@ __Round 3__
   Selected:  Weightless — Marconi Union  (score: 58.8)
   Runner-up: 1/1 — Brian Eno  (score: 58.1)
 
-  Weightless by Marconi Union perfectly matches the scene's misty, serene atmosphere with its deeply relaxing and healing mood, aligning with the ambient, pixel-art rainy forest setting. Its minimal energy and near-zero tension ensure a tranquil, meditative tone that enhances the visual calmness without overpowering it.
+  Weightless by Marconi Union perfectly matches the scene's misty, 
+  serene atmosphere with its deeply relaxing and healing mood, aligning 
+  with the ambient, pixel-art rainy forest setting. Its minimal energy 
+  and near-zero tension ensure a tranquil, meditative tone that enhances 
+  the visual calmness without overpowering it.
 ============================================================
 ~~~
 ## Getting Started
-
 ### Setup
 
 1. Create a virtual environment (optional but recommended):
@@ -339,26 +442,13 @@ __Round 3__
 
 5. Run the full image-to-music pipeline:
 
-   ```python
-   from src.vision_ai import analyze_image
-   from src.recommender import load_songs, recommend_songs, vision_prefs_to_user_prefs
-   from src.final_decider import decide
-
-   # Step 1 — analyze the scene image
-   image_profile = analyze_image("path/to/your/image.jpg")
-
-   # Step 2 — load catalog and score songs
-   songs = load_songs("data/fixed_music_list.csv")
-   songs += load_songs("data/verified_compiled_music_list.csv")
-   prefs = vision_prefs_to_user_prefs(image_profile)
-   top_songs = recommend_songs(prefs, songs, k=10)
-
-   # Step 3 — final AI picks the best match
-   candidates = [song for song, score, _ in top_songs]
-   result = decide(image_profile, candidates)
-   print(result)
+  ```
+  python -m src.main <image>
    ```
+  > Note: you need to run `ollama serve` beforehand or have ollama run in the background 
 
+### Walkthrough Video
+[Link Test](https://www.loom.com/share/ccfbb3fa9d714b94baac468077bbe5f9)
 ### Running Tests
 
 Run the starter tests with:
@@ -368,10 +458,58 @@ pytest
 ```
 
 You can add more tests in `tests/test_recommender.py`.
+
+
+> Note: you need to run `ollama serve` beforehand or have ollama run in the background 
 You can add more tests in `tests/test_pipeline.py`.
 
 ---
+## Tests in test_pipeline.py
 
+9 integration tests across 3 scene images, each image covered by 3 tiers:
+- **Vision output** — checks key values from the vision AI are in the expected range for the scene type
+- **Recommender** — checks that the scoring algorithm surfaces appropriately matched songs
+- **Full pipeline** — runs all three stages end-to-end and validates the final AI returns a well-formed result
+
+Thresholds are intentionally loose (e.g. `avg intensity >= 0.5` rather than `>= 0.7`) so tests remain stable across model runs that may vary slightly in their numeric outputs.
+
+```
+$ pytest tests/test_pipeline.py -v
+
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-9.0.3, pluggy-1.6.0
+collected 9 items
+
+tests/test_pipeline.py::test_ffxiv_dawntrail_vision_output PASSED        [ 11%]
+tests/test_pipeline.py::test_ffxiv_dawntrail_recommends_ambient PASSED   [ 22%]
+tests/test_pipeline.py::test_ffxiv_dawntrail_full_pipeline PASSED        [ 33%]
+tests/test_pipeline.py::test_god_of_war_vision_output PASSED             [ 44%]
+tests/test_pipeline.py::test_god_of_war_recommends_high_intensity PASSED [ 55%]
+tests/test_pipeline.py::test_god_of_war_full_pipeline PASSED             [ 66%]
+tests/test_pipeline.py::test_minecraft_rain_vision_output PASSED         [ 77%]
+tests/test_pipeline.py::test_minecraft_rain_recommends_calm PASSED       [ 88%]
+tests/test_pipeline.py::test_minecraft_rain_full_pipeline PASSED         [100%]
+
+============================== 9 passed in 48.02s ==============================
+```
+## Design Desicions
+The vision ai model is a core requirment for my project to be able to determine the values to give to
+an image. These values can then be used tostart rating them based on descriptions such as settings and genre and add them with the image.
+So to get a usuable description and tangiable values from the image. I use a
+visual ai, specifically qwen3-vl:8b-instruct model to look at the image and to 
+give values for each category. I considered using something like llama-vision for this,
+but it wasn't great in giving me consistantly json output to be able to extract the data, and the way it rated the image was slightly off. I still use the algorithim
+I used in the original project, with it being slightly tweaked with its weights.
+Then I used another ai model which is a lighther version of Qwen 3 instruct model
+to give a consistantly sctructed response. The final model could honestly be done 
+by any model but I found this one to be lightweight and able to consistantly output 
+results. 
+The final ai model focuses on bonuses and penalties using the labels in genre and 
+conflicting mood and visual syles vs genre. The reason for this is cause the model
+can decently figure out what conflicts with each other, without me 
+having to define every single genre, mood, setting, genre etc.
+The downside for using an ai is that it still will deviate a bit every
+run.
 ## Experiments You Tried
 
 Use this section to document the experiments you ran. For example:
